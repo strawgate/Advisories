@@ -12,7 +12,7 @@ This particular vulnerable server was found by searching google for a piece of t
 
 Here's a screenshot of a server hosting the GraphQL Playground
 
-![Playground](playground.png)
+![Playground](Playground.png)
 
 More specifically, a simple google search for `"Hit the Play Button to get a response here"` revealed the exposed server.
 
