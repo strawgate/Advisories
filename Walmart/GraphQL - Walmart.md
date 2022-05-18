@@ -2,7 +2,7 @@
 
 GraphQL is an exciting technology that simplifies how developers load data from back-end services and thousands of organizations are realizing the simplicity and power GraphQL enables for new applications. If and when a security issue does occur, the simplicity and power of GraphQL helps attackers to gain control of significantly more confidential data far faster than ever before.
 
-Walmart accidentally exposed a graphql endpoint from their staging environment to the public with no authentication, schema introspection enabled, and graphql playground enabled. This makes it trivial for an attacker to scrape the entire API surface area for issues.
+Walmart appears to have exposed a graphql endpoint from their staging environment https://developer.api.stg.walmart.com/api-proxy/service/Store-Services/Store-GraphQL-API/v1/graphql to the public with no authentication, schema introspection enabled, and graphql playground enabled. This makes it trivial for an attacker to scrape the entire API surface area for issues.
 
 A quick set of queries revealed that most of the information from this public graphql endpoint was information that would generally be publicly available which is a little less exciting. However, if you’re able to get the graphql gateway to produce an invalid request to an underlying system it dumps the entire request into the payload back to the requestor. This includes headers from the GraphQL Gateway to the backend microservice that handles the request. In Walmart’s case this included the names of the internal servers and services and the authorization and access tokens the GraphQL gateway was using to interact with those services.
 
