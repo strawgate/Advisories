@@ -64,8 +64,7 @@ BigFix.me Sync Tool stores username/password in plain text
 
 ## Summary
 
-Essentially, Shared Dashboard Variables have zero access control and can be read from and written to by any console or rest api operator, regardless of their granted permissions. Even accounts configured as totally read-only can write to dashboard variables.
+Shared Dashboard Variables have essentially zero access control and can be read from and written to by any console or rest api operator, regardless of their granted permissions. Even accounts configured as totally read-only can write to dashboard variables.
 
-HCL makes the argument that this is all by design and that dashboard variables do not and should not store sensitive information.
+The BigFix team determined that this was all by design and that dashboard variables do not and should not store sensitive information.
 
-Here are the places where I believe they are storing sensitive information:
