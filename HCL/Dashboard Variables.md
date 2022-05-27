@@ -44,12 +44,20 @@ The following is from the register repo wizard which uses the value from a dashb
 
 All Custom Repository Dashboards/Wizards which inject the contents of dashboard variables directly into fixlets are vulnerable.
 
+### Modifying saved queries in WebUI
+
+Saved queries in WebUI are stored as Dashboard Variables under a made up dashboard named `webui:query1:*` for example `webui:query1:cat:applications`.
+
+These queries are stringified JSON that look like this: `{"title": "Find RPM package (Linux)","query": "(name%20of%20it%2C%20version%20of%20it)%20of%20packages%20whose%20(name%20of%20it%20as%20lowercase%20contains%20%22python%22)%20of%20rpm","lastEditBy":"Query","locked": "true"}`
+
+As any user can modify this variable it is possible to adjust WebUI queries without the knowledge of the operators who rely on that query.
+
 ### SCM Dashboard Compliance Exceptions
 The SCM Dashboard uses dashboard variables for Compliance Exception Reporting. An unscrupulous actor could take advantage of this and put in place exceptions that weren't approved by the enterprise.
 
 ### OS Deployment
 
-OS Deployment - Image Library: domain passwords, admin passwords are base 16 encoded, bitlocker pin is plain text. Dashboard variables store the settings used for the MDT share that is to be used for re-imaging. Allowing an attacker to swap images, create accounts, etc.
+OS Deployment - Image Library: domain passwords, admin passwords are base 16 encoded, bitlocker pin is plain text. Dashboard variables store the settings used for the MDT share that is to be used for re-imaging. Allowing an attacker to swap images, disable encryption, create accounts, etc.
 
 ### BigFix.Me Sync Tool
 BigFix.me Sync Tool stores username/password in plain text
