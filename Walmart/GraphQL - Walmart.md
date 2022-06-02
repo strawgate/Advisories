@@ -6,6 +6,8 @@ Walmart accidentally exposed a graphql endpoint from their staging environment t
 
 A quick set of queries revealed that most of the information from this public graphql endpoint was information that would generally be publicly available which is a little less exciting. However, if you’re able to get the graphql gateway to produce an invalid request to an underlying system it dumps the entire request into the payload back to the requestor. This includes headers from the GraphQL Gateway to the backend microservice that handles the request. In Walmart’s case this included the names of the internal servers and services and the authorization and access tokens the GraphQL gateway was using to interact with those services.
 
+Endpoint is here: https://developer.api.stg.walmart.com/api-proxy/service/Store-Services/Store-GraphQL-API/v1/graphql
+
 # Locating this issue
 
 This particular vulnerable server was found by searching google for a piece of text that only exists in GraphQL playgrounds.
